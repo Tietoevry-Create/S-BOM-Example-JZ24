@@ -22,12 +22,7 @@ jobs:
         with:
           output: "bom.xml"
           #serverUrl: "https://deptrack.appthreat.io"
-          #apiKey: ${{ secrets.apiKey }}
-      - run: |
-          pwd
-          ls -l
-          ls -l sbom-demo-java
-          ls -l sbom-demo-java/*        
+          #apiKey: ${{ secrets.apiKey }}      
       - uses: actions/upload-artifact@v1
         with:
           name: bom
