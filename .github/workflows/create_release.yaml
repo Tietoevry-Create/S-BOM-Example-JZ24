@@ -23,7 +23,7 @@ jobs:
           workflow: build_and_deploy.yaml
       - run: |
           ls -l
-          zip --junk-paths Sbom-Demo bom/bom.xml sbom-demo-app-1.0-SNAPSHOT-boot.jar
+          zip --junk-paths Sbom-Demo bom/bom.xml Package/sbom-demo-app-1.0-SNAPSHOT-boot.jar
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
