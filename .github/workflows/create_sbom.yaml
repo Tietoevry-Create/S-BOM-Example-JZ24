@@ -12,10 +12,14 @@ jobs:
     steps:
       - uses: AppThreat/cdxgen-action@v1
         with:
-          output: "../bom.xml"
+          output: "bom.xml"
           #serverUrl: "https://deptrack.appthreat.io"
           #apiKey: ${{ secrets.apiKey }}
-      
+      - run: |
+          pwd
+          ls -l
+          ls -l sbom-demo-java
+          ls -l sbom-demo-java/*        
       - uses: actions/upload-artifact@v1
         with:
           name: bom
