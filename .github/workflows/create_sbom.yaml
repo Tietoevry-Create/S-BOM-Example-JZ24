@@ -10,13 +10,19 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: AppThreat/cdxgen-action@v1
-        working-directory: ./sbom-demo-java/
+      - uses: actions/checkout@v4
+      - run: |
+          cp -r sbom-demo-java/* .
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          output: "../bom.xml"
+          java-version: '21'
+          distribution: 'temurin'
+      - uses: AppThreat/cdxgen-action@v1
+        with:
+          output: "bom.xml"
           #serverUrl: "https://deptrack.appthreat.io"
-          #apiKey: ${{ secrets.apiKey }}
-      
+          #apiKey: ${{ secrets.apiKey }}      
       - uses: actions/upload-artifact@v1
         with:
           name: bom
