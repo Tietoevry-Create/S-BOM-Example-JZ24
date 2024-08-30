@@ -14,8 +14,8 @@ jobs:
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
       - run: |
-          find .
-          zip --junk-paths Sbom-Demo *
+          ls -l
+          zip --junk-paths Sbom-Demo bom.xml sbom-demo-app-1.0-SNAPSHOT-boot.jar
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
