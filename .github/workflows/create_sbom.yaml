@@ -1,0 +1,22 @@
+name: Publish package to the Maven Central Repository
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Build]
+    types:
+      - completed
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+- uses: AppThreat/cdxgen-action@v1
+  working-directory: ./sbom-demo-java/
+  with:
+    output: "../bom.xml"
+    #serverUrl: "https://deptrack.appthreat.io"
+    #apiKey: ${{ secrets.apiKey }}
+
+- uses: actions/upload-artifact@v1
+  with:
+    name: bom
+    path: bom.xml
