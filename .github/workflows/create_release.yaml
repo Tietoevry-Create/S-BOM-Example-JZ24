@@ -20,7 +20,7 @@ jobs:
         id: download-artifact-build
         uses: dawidd6/action-download-artifact@v6
         with:
-          workflow: Build
+          workflow: build_and_deploy.yaml
       - run: |
           ls -l
           zip --junk-paths Sbom-Demo bom/bom.xml sbom-demo-app-1.0-SNAPSHOT-boot.jar
