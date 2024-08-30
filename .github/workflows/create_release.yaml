@@ -14,7 +14,7 @@ jobs:
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
       - run: |
-        find .
+          find .
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
